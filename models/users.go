@@ -13,7 +13,7 @@ import (
 	"github.com/tonyalaribe/converze-api/config"
 )
 
-//Listing struct holds all submitted form data for listings
+//User struct holds data for a User, including their BioDetails
 type User struct {
 	Name            string
 	Email           string
@@ -22,7 +22,7 @@ type User struct {
 	P               string `json:"Password" bson:"-"`
 	DateCreated     time.Time
 	Coordinates     string
-	CompletedSignup bool
+	CompletedSignup bool //CompletedSignup becomes true after the bio details and interests have been added, usually after signup
 	Location        struct {
 		Type        string
 		Coordinates []float64
@@ -41,7 +41,7 @@ type User struct {
 	Interests []string
 }
 
-//Return a single users details from d, based on his email
+//Get Returns a single users details from d, based on his email
 func (r User) Get(conf *config.Conf, email string) (User, error) {
 	user := User{}
 	mgoSession := conf.Database.Session.Copy()
