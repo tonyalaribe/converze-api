@@ -37,11 +37,9 @@ const (
 
 	FACEBOOK = "facebook"
 
-	USERSCOLLECTION   = "Users"
-	STORESCOLLECTION  = "Stores"
-	PRODUCTCOLLECTION = "Products"
-	CITIESCOLLECTION  = "Cities"
-	TAGSCOLLECTION    = "Tags"
+	USERSCOLLECTION = "Users"
+
+	TAGSCOLLECTION = "Tags"
 )
 
 func Init() {
@@ -50,7 +48,7 @@ func Init() {
 	if MONGOSERVER == "" {
 		log.Println("No mongo server address set, resulting to default address")
 		MONGOSERVER = "127.0.0.1:27017"
-		MONGODB = "shop440"
+		MONGODB = "converze"
 		//MONGODB = "yellowListings"
 		//MONGODB = "y"
 		//mongodb://localhost
@@ -67,7 +65,7 @@ func Init() {
 		log.Fatal(err)
 	}
 	client := s3.New(auth, aws.USWest2)
-	bucketname := os.Getenv("bucket-name")
+	bucketname := os.Getenv("bucket_name")
 	if bucketname == "" {
 		bucketname = "test-past3"
 	}

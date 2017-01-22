@@ -44,7 +44,7 @@ func NewUserAccount(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-	//log.Println(user)
+	log.Println(user)
 
 	data := struct {
 		Message string

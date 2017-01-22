@@ -15,21 +15,30 @@ import (
 
 //Listing struct holds all submitted form data for listings
 type User struct {
-	Name        string
-	Email       string
-	Image       string
-	Password    []byte `json:"-"`
-	P           string `json:"Password" bson:"-"`
-	DateCreated time.Time
-	Coordinates string
-	Location    struct {
+	Name            string
+	Email           string
+	Image           string
+	Password        []byte `json:"-"`
+	P               string `json:"Password" bson:"-"`
+	DateCreated     time.Time
+	Coordinates     string
+	CompletedSignup bool
+	Location        struct {
 		Type        string
 		Coordinates []float64
 	}
 	BioDetails struct {
-		SecondaryEducation string
-		TertiaryEducation  string
+		SecondaryInstitution string
+		TertiaryInstitution  string
+		CourseOfStudy        string
+		Profession           string
+		Workplace            string
+		StateOfOrigin        string
+		CountryOfOrigin      string
+		StateOfResidence     string
+		CountryOfResidence   string
 	}
+	Interests []string
 }
 
 //Return a single users details from d, based on his email
